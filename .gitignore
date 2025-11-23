@@ -1,0 +1,56 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# =========================
+# Jupyter / notebooks
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Environments
+# =========================
+.env
+.venv
+venv/
+env/
+conda-meta/
+*.conda
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+.history/
+
+# =========================
+# OS junk
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Data (keep structure only)
+# =========================
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# =========================
+# Models / results (optional)
+# =========================
+models/trained/*
+results/figures/*
+results/tables/*
+!models/trained/.gitkeep
+!results/figures/.gitkeep
+!results/tables/.gitkeep

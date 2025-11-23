@@ -1,0 +1,14 @@
+name: local-primality
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - scikit-learn
+  - jupyterlab
+  - tqdm
+  - seaborn
