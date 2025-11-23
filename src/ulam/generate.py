@@ -34,20 +34,43 @@ def generate_ulam_spiral(size: int) -> np.ndarray:
     spiral = np.zeros((size, size), dtype=int)
 
     x = y = size // 2
-    dx, dy = 0, -1
-    num = 1
+    spiral[y, x] = 1
 
-    for _ in range(size * size):
-        if (-size // 2 < x <= size // 2) and (-size // 2 < y <= size // 2):
-            spiral[y + size // 2, x + size // 2] = num
-            num += 1
+    num = 2
+    step = 1
 
-        # Change direction
-        if (x == y) or (x < 0 and x == -y) or (x > 0 and x == 1 - y):
-            dx, dy = -dy, dx
+    while num <= size * size:
+        # Move right
+        for _ in range(step):
+            x += 1
+            if 0 <= x < size and 0 <= y < size:
+                spiral[y, x] = num
+                num += 1
 
-        x += dx
-        y += dy
+        # Move down
+        for _ in range(step):
+            y += 1
+            if 0 <= x < size and 0 <= y < size:
+                spiral[y, x] = num
+                num += 1
+
+        step += 1
+
+        # Move left
+        for _ in range(step):
+            x -= 1
+            if 0 <= x < size and 0 <= y < size:
+                spiral[y, x] = num
+                num += 1
+
+        # Move up
+        for _ in range(step):
+            y -= 1
+            if 0 <= x < size and 0 <= y < size:
+                spiral[y, x] = num
+                num += 1
+
+        step += 1
 
     return spiral
 
@@ -61,7 +84,6 @@ def generate_prime_mask(spiral: np.ndarray) -> np.ndarray:
 
 
 if __name__ == "__main__":
-    # Quick sanity check
     s = generate_ulam_spiral(7)
     p = generate_prime_mask(s)
 
